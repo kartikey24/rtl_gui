@@ -18,7 +18,7 @@ export class AppComponent {
   onSuccess(data :{rtl:string; cpp:string;}): void{
   	rtl.value=data.get('rtl');
   	out.value=data.get('cpp');
-    alert('Your feedback was submitted successfully :)')
+    alert('Your feedback was submitted successfully :)');
   }
 
   onClick(): void {
