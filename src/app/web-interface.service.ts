@@ -20,9 +20,9 @@ export class WebInterfaceService {
     return throwError('Error in submitting form data via POST request')
   }
 
-  submitFormData(formData: Config): Observable<Config>{
+  submitData(inpData:{'inp':string;}): Observable<{'inp':string;}>{
 
-    return this.http.post<Config>(this.URL, formData, this.options).pipe(
+    return this.http.post<{'inp':string;}>(this.URL, inpData, this.options).pipe(
       catchError(this.handleError)
     )
 
