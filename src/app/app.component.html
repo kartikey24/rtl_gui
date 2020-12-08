@@ -1,24 +1,21 @@
-<body>
-<h1  align='center'>{{title}}</h1>
-
-<div class="textAreaColumn">
-    <div>
-        <span>Enter input C code</span>
-        <textarea id='in'>Content goes here</textarea>
+<div  class="form-style-3">
+    <form [formGroup]="data" (ngSubmit)="onClick()">
+    
+        <label>
+            <span>Original Code</span>
+            <textarea formControlName="code"></textarea>
+        </label>
+        <label>
+            <span>Generated RTL</span>
+            <textarea formControlName="rtl"></textarea>
+        </label>
+        <label>
+            <span>CPP code generated from RTL</span>
+            <textarea formControlName="cpp"></textarea>
+        </label>
+    
+        <div class="sub">
+            <button type="submit">Refresh</button>
+        </div>
+    </form>
     </div>
-    <div>
-        <span>Generated RTL</span>
-        <textarea id='rtl'>Content goes here</textarea>
-    </div>
-    <div>
-        <span>Decompiled C++ code</span>
-        <textarea id='out'>Content goes here</textarea>
-    </div>
-    <!-- <div>
-        <span>Title 4</span>
-        <textarea>Content goes here</textarea>
-    </div> -->
-</div>
-
-<button type='button' (click)="onClick()" align='center'>Generate</button>
-</body>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { WebInterfaceService } from '../web-interface.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { WebInterfaceService } from './web-interface.service';
 
 @Component({
   selector: 'app-root',
@@ -9,20 +10,16 @@ import { WebInterfaceService } from '../web-interface.service';
 export class AppComponent {
   title = 'rtl';
 
-  var inp=document.getElementById('in');
-  var rtl=document.getElementById('rtl');
-  var out=document.getElementById('out');
+  data = new FormGroup({
+    code: new FormControl('//Put the cpp code here'),
+    rtl: new FormControl(''),
+    cpp: new FormControl(''),
+  })
 
   constructor(private webInterfaceService: WebInterfaceService) { }
 
-  onSuccess(data :{rtl:string; cpp:string;}): void{
-  	rtl.value=data.get('rtl');
-  	out.value=data.get('cpp');
-    alert('Your feedback was submitted successfully :)');
-  }
-
   onClick(): void {
-    console.log(this.inp.value);
-    this.webInterfaceService.submitData(this.inp.value).subscribe(data => this.onSuccess(data));
+    console.log(this.data.value);
+    this.webInterfaceService.submitData(this.data.value).subscribe(result => this.data.setValue(result));
   }
 }
