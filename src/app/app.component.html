@@ -1,4 +1,6 @@
-<div  class="form-style-3">
+<h1>RTL</h1>
+
+<div  class="textAreaColumn">
     <form [formGroup]="data" (ngSubmit)="onClick()">
     
         <label>
@@ -13,9 +15,9 @@
             <span>CPP code generated from RTL</span>
             <textarea formControlName="cpp"></textarea>
         </label>
-    
+        <br><br>
         <div class="sub">
-            <button type="submit">Refresh</button>
+            <button type="submit">Generate</button>
         </div>
     </form>
-    </div>
+</div>
